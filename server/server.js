@@ -2,9 +2,7 @@
 const morgan = require('morgan')
 const express = require('express');
 const bodyParser = require('body-parser');
-const { saveLinks } = require('./database_helpers/link_helper');
-
-
+const { saveLinks, getLinks } = require('./database_helpers/link_helper');
 
 
 const app = express()
@@ -27,6 +25,15 @@ app.post('/links', (req, res)=>{
   console.log(req.body)
   saveLinks(req.body);
   res.send(201);
+})
+
+app.get('/links', (req,res) =>{
+  getLinks((error, links) => {
+    if (error){
+      console.error(error)
+    }
+    res.send(links)
+  })
 })
 
 //export the app
