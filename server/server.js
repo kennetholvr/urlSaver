@@ -2,6 +2,7 @@
 const morgan = require('morgan')
 const express = require('express');
 const bodyParser = require('body-parser');
+const db = require('./database_helpers')
 
 const app = express()
 
