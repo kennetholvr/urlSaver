@@ -1,6 +1,12 @@
 const express = require('express');
-const port = process.env.PORT || 3000;
 const app = express()
+const morgan = require('morgan')
+const port = process.env.PORT || 3000;
+
+
+app.use(morgan('combined'))
+
+app.use(express.static('client'));
 
 app.get('/', (req, res) => res.send('Hello World!'))
 
