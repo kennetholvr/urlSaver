@@ -2,7 +2,10 @@
 const morgan = require('morgan')
 const express = require('express');
 const bodyParser = require('body-parser');
-const db = require('./database_helpers')
+const { saveLinks } = require('./database_helpers/link_helper');
+
+
+
 
 const app = express()
 
@@ -19,8 +22,10 @@ app.use(bodyParser.json())
 app.use(morgan('combined'))
 app.use(express.static('client'));
 
+
 app.post('/links', (req, res)=>{
   console.log(req.body)
+  saveLinks(req.body);
   res.send(201);
 })
 
