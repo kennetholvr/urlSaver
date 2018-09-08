@@ -5,7 +5,7 @@
         <thead>
           <tr>
             <th>
-              {{$ctrl.links | json}}
+              Description
             </th>
             <th>
               Url
@@ -13,13 +13,13 @@
           </tr>
         </thead>
 
-        <tbody>
+        <tbody ng-repeat="link in $ctrl.links">
           <tr>
             <td>
-              1
+              {{link.description}}
             </td>
             <td>
-              TB - Monthly
+              {{link.url}}
             </td>
           </tr>
 
