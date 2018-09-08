@@ -10,5 +10,10 @@ angular.module('app')
         })
     };
 
+    this.getLinks = (callback) => {
+      $http.get('/links')
+      .then(({data}) => callback(data))
+      .catch(error=> console.log(error))
+    }
     // write functin to retrieve links from server
 });

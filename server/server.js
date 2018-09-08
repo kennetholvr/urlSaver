@@ -32,7 +32,7 @@ app.get('/links', (req,res) =>{
     if (error){
       console.error(error)
     }
-    res.send(links)
+    res.send(links) 
   })
 })
 
