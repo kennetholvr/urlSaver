@@ -1,10 +1,10 @@
 angular.module('app')
   .service('linkService', function linkService($http) {
 
-    this.send = ({url, description}) =>{
+    this.send = ({url, description}, callback) =>{
       $http.post('/links', { url, description })
       .then((response) => {
-        console.log(response)
+        callback(response)
         }).catch((err) => {
           console.error(err)
         })
